@@ -1,0 +1,30 @@
+package com.zew.java.util;
+
+/**
+ *  对collection 进行迭代的迭代器（取代了Enumeration）
+ * @author 17073864
+ *
+ * @param <E>
+ */
+public interface Iterator<E> {
+	/**
+	 * 是否可以迭代，即是否还有元素
+	 * @return  还有元素则返回true
+	 */
+	boolean hasNext();
+	/**
+	 * 迭代下一个元素，即返回下一个元素
+	 * @return 迭代的下一个元素
+	 * @exception NoSuchElementException 没有元素则抛出异常
+	 */
+	E next();
+	
+	/**
+	 * 删除集合中的最后一个元素（可选操作）
+	 * （每次调用 next 只能调用一次此方法。如果进行迭代时用调用此方法之外的其他方式修改了该迭代器所指向的 collection，则迭代器的行为是不确定的。）
+	 * @exception UnsupportedOperationException 不支持remove操作异常
+	 * @exception IllegalStateException  如果尚未调用 next 方法，或者在上一次调用 next 方法之后已经调用了 remove 方法。
+	 */
+	void remove();
+
+}
